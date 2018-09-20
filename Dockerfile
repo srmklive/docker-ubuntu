@@ -12,8 +12,6 @@ RUN apt-get update \
 RUN apt-get -y install cron supervisor gnupg tzdata \
   && echo "UTC" >> /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata
-  
-RUN apt-get -y install libssl1.1 openssl 
 
 RUN apt-get update \
   && apt-get -y upgrade
