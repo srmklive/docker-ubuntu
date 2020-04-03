@@ -30,7 +30,7 @@ RUN apt-get install -y \
     libssl-dev \
     ffmpeg
 
-RUN mkdir /code
+RUN mkdir /python_packages
 WORKDIR /python_packages
 
 RUN sysctl vm.overcommit_memory=1
