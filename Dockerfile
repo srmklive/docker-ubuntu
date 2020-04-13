@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
   && apt-get -y install apt-utils \ 
   && apt-get -y install curl nano zip unzip git openssl sqlite3 build-essential software-properties-common \
-  && apt-get -y upgrade
+  && apt-get -y upgrade \
+  && apt-get -y dist-upgrade
   
 RUN apt-get -y install cron supervisor gnupg tzdata \
   && echo "UTC" >> /etc/timezone \
@@ -30,13 +31,7 @@ RUN apt-get install -y \
     libssl-dev \
     ffmpeg
 
-RUN mkdir /python_packages
-WORKDIR /python_packages
-
 RUN sysctl vm.overcommit_memory=1
-
-ADD requirements.txt /python_packages
-RUN pip3 install -r requirements.txt
 
 RUN apt-get -y autoclean \
   && apt-get -y autoremove \
