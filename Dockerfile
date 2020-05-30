@@ -6,11 +6,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
   && apt-get -y install apt-utils \ 
-  && apt-get -y install curl nano zip unzip git openssl sqlite3 build-essential software-properties-common \
-  && apt-get -y upgrade
+  && apt-get -y upgrade \ 
+  && apt-get -y install wget curl nano zip unzip git openssl sqlite3 build-essential software-properties-common cron supervisor gnupg tzdata 
   
-RUN apt-get -y install cron supervisor gnupg tzdata \
-  && echo "UTC" >> /etc/timezone \
+RUN echo "UTC" >> /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update \
