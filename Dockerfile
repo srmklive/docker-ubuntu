@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:latest
 
 LABEL maintainer="Raza Mehdi<srmk@outlook.com>"
 
